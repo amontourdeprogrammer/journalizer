@@ -1,11 +1,9 @@
-html
-  head
-    title Journalizer
-  body
-    h1 Journalizer in PUG
-    a(href="/ajouter-journal") Ajouter un journal
-    ol
-      each journal in journaux
-        li
-          = journal.title
+extends layout.pug
+
+block content
+  a(href="/ajouter-journal") Ajouter un journal
+  ol
+    each journal in journaux
+      li
+        = journal.title
 

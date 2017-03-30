@@ -1,34 +1,26 @@
-doctype html
+extends layout.pug
 
-html(lang=fr)
-  head
-    title Journalizer
-    meta(charset="utf-8")
-    link(href="style.css", rel="stylesheet")
-  body
-    h1 Ajouter un journal
+block content
+  form(action="/journal", method="POST")
 
-    form(action="/journal", method="POST")
+    label(for="author") Auteure
+    select(id="author", name="author")
+      option Lorena
+      option Alexandra
+      option Anna-Livia
+      option Marine
+      option Sarah
 
-      label(for="author") Auteure
-      <select id="author" name="author">
-        <option>Lorena
-        <option>Alexandra
-        <option>Anna-Livia
-        <option>Marine
-        <option>Sarah
-      </select>
+    label(for="activity") Activité
+    select(id="activity", name="activity")
+      option Autre
+      option Le forum
+      option Retour au (code) source
+      option Live coding
+      option Bain de code
 
-      <label for="activity">Activité</label>
-      <select id="activity" name="activity">
-        <option>Autre</option>
-        <option>Le forum</option>
-        <option>Retour au (code) source</option>
-        <option>Live coding</option>
-        <option>Bain de code</option>
-      </select>
+    label(for="learning") Ce que j'ai appris
+    textarea(id="learning", name="learning")
 
-      <label for="learning">Ce que j'ai appris</label>
-      <textarea id="learning" name="learning"></textarea>
-
-      <button type="submit">Ajouter</button>
+    button(type="submit") Ajouter
+    a(href="/") Annuler
