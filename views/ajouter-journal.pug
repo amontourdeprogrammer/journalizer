@@ -1,0 +1,34 @@
+doctype html
+
+html(lang=fr)
+  head
+    title Journalizer
+    meta(charset="utf-8")
+    link(href="style.css", rel="stylesheet")
+  body
+    h1 Ajouter un journal
+
+    form(action="/journal", method="POST")
+
+      label(for="author") Auteure
+      <select id="author" name="author">
+        <option>Lorena
+        <option>Alexandra
+        <option>Anna-Livia
+        <option>Marine
+        <option>Sarah
+      </select>
+
+      <label for="activity">Activité</label>
+      <select id="activity" name="activity">
+        <option>Autre</option>
+        <option>Le forum</option>
+        <option>Retour au (code) source</option>
+        <option>Live coding</option>
+        <option>Bain de code</option>
+      </select>
+
+      <label for="learning">Ce que j'ai appris</label>
+      <textarea id="learning" name="learning"></textarea>
+
+      <button type="submit">Ajouter</button>
