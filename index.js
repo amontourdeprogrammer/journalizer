@@ -30,9 +30,23 @@ app.get("/ajouter-journal", function (request, response) {
   });
 });
 
+app.get('/:slug', function (request, response) {
+  console.log(request.params.slug);
+
+  db.query('something', {slug: request.params.slug})
+    .then(function (response) {
+      console.log(response);
+    })
+  .catch(function (err) {
+    console.log("ERROR: ", err);
+  });
+  response.send("ok");
+});
+
+
 app.post("/journal", function (request, response) {
   console.log(request.body);
-  var journal = {content: request.body.learn, title: J.buildSlugFrom(request.body)}
+  var journal = {content: request.body.learn, title: J.buildTitleFrom(request.body), slug: J.buildSlugFrom(request.body)}
   db.post(journal).then(function (response) {
     console.log(response);
   }).catch(function (err) {
