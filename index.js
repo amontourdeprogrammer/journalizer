@@ -34,7 +34,7 @@ app.get('/:slug', function (request, response) {
 
 app.post("/journal", function (request, response) {
   console.log(request.body);
-  var journal = J.new_journal({
+  var journal = J.create_journal({
     author: request.body.author,
     date: request.body.date,
     activity: request.body.activity,
