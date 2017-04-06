@@ -12,15 +12,15 @@ app.set('view engine', 'pug')
 var journaux = []
 
 app.get("/", function (request, response) {
-  response.render('index', { journaux: journaux }, function(err, html) {
-    console.log(err);
+  response.render('index', { journaux: J.journal_list() }, function(err, html) {
+    if (err) { console.log(err); }
     response.send(html);
   });
 });
 
 app.get("/ajouter-journal", function (request, response) {
   response.render('ajouter-journal', {}, function(err, html) {
-    console.log(err);
+    if (err) { console.log(err); }
     response.send(html);
   });
 });

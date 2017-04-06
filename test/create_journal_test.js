@@ -29,7 +29,7 @@ describe("Création d'un journal", function () {
   describe('a un slug', function() {
     it('avec une date, un(e) auteur, et l\'activité', function() {
       var journal = J.create_journal({date: "2017-04-23", author: "Sarah", activity: "Bain de code"});
-      assert.equal('2017-04-23-sarah-bain-de-code', journal.slug);
+      assert.equal('20170423-sarah-bain_de_code', journal.slug);
     });
   });
 
@@ -47,4 +47,5 @@ describe("Création d'un journal", function () {
   });
 
 });
+
 
