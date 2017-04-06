@@ -3,6 +3,7 @@ var fs = require('fs');
 var J = require('../lib/journalizer');
 
 describe("Création d'un journal", function () {
+
   describe("dans le système de fichier", function () {
     it("avec un fichier nommé selon le slug", function () {
       var journal = J.create_journal({date: "2017-04-23", author: "Sarah", activity: "Bain de code"});

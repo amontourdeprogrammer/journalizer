@@ -19,7 +19,6 @@ app.get("/", function (request, response) {
 });
 
 app.get("/ajouter-journal", function (request, response) {
-  console.log('dans ajouter journal');
   response.render('ajouter-journal', {}, function(err, html) {
     console.log(err);
     response.send(html);
@@ -27,13 +26,11 @@ app.get("/ajouter-journal", function (request, response) {
 });
 
 app.get('/:slug', function (request, response) {
-  console.log(request.params.slug);
   response.send("journal demandé : " + request.params.slug);
 });
 
 
 app.post("/journal", function (request, response) {
-  console.log(request.body);
   var journal = J.create_journal({
     author: request.body.author,
     date: request.body.date,
