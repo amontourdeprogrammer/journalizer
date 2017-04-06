@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+
 var PouchDB = require('pouchdb');
+
 var J = require('./lib/journalizer');
 
 var app = express();
@@ -40,6 +42,7 @@ app.get('/:slug', function (request, response) {
   .catch(function (err) {
     console.log("ERROR: ", err);
   });
+
   response.send("ok");
 });
 
@@ -47,12 +50,15 @@ app.get('/:slug', function (request, response) {
 app.post("/journal", function (request, response) {
   console.log(request.body);
   var journal = {content: request.body.learn, title: J.buildTitleFrom(request.body), slug: J.buildSlugFrom(request.body)}
+
   db.post(journal).then(function (response) {
     console.log(response);
   }).catch(function (err) {
     console.log(err);
   });;
+
   journaux.push(journal);
+
   response.redirect("/");
 });
 
