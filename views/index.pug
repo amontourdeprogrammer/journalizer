@@ -5,6 +5,6 @@ block content
   ol
     each journal in journaux
       li
-        a(href=journal.slug)
-          = journal.title
+        a(href=journal.slug())
+          = journal.title()
 

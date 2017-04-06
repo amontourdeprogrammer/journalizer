@@ -49,7 +49,11 @@ app.get('/:slug', function (request, response) {
 
 app.post("/journal", function (request, response) {
   console.log(request.body);
-  var journal = {content: request.body.learn, title: J.buildTitleFrom(request.body), slug: J.buildSlugFrom(request.body)}
+  var journal = J.new_journal({
+    author: request.body.author,
+    date: request.body.date,
+    activity: request.body.activity,
+    content: request.body.learn})
 
   db.post(journal).then(function (response) {
     console.log(response);
